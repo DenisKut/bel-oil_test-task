@@ -1,8 +1,7 @@
 namespace backend.Models
 {
-  public class ParentInfo
+  public class ParentInfo : BaseEntity
   {
-    public long Id { get; set; }
     public string Mother { get; set; }
     public string Father { get; set; }
     public string FatherProfession { get; set; }

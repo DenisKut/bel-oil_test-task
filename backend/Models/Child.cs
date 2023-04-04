@@ -1,8 +1,8 @@
+
 namespace backend.Models
 {
-  public class Child
+  public class Child : BaseEntity
   {
-    public long Id { get; set; }
     public string Name { get; set; }
     public int Age { get; set; }
     public string Passport { get; set; }
