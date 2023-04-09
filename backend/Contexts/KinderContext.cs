@@ -13,11 +13,14 @@ namespace backend.Contexts;
     public DbSet<HeadOfKindergarten> Heads { get; set; }
     public DbSet<ParentInfo> ParentInfos { get; set; }
     public DbSet<Payment> Payments { get; set; }
+    public DbSet<Zone> Zone { get; set; }
 
     public KinderContext(DbContextOptions<KinderContext> options)
       : base(options)
     {
+      //Настройка Timestamp для работы с датой в запросах
 
+      AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

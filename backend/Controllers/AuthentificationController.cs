@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using Serilog;
 
 namespace backend.Controllers
 {
@@ -23,24 +24,29 @@ namespace backend.Controllers
       private readonly IConfiguration _configuration;
       //private readonly JwtConfig _jwtConfig;
 
+      private readonly ILogger<AuthentificationController> _logger;
       public AuthentificationController(
         UserManager<IdentityUser> userManager,
-        IConfiguration configuration
+        IConfiguration configuration,
+        ILogger<AuthentificationController> logger
         //JwtConfig jwtConfig
         )
       {
         _userManager = userManager;
         //_jwtConfig = jwtConfig;
         _configuration = configuration;
+        _logger = logger;
       }
 
       [HttpPost]
       [Route("Register")]
       public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto requestDto)
       {
+        _logger.LogInformation("| Log || Auth || register |");
         //Validate incoming request
         if(ModelState.IsValid)
         {
+
           //We need to ckeck if the email already exist
           var user_exist = await _userManager.FindByEmailAsync(requestDto.Email);
 
@@ -94,6 +100,7 @@ namespace backend.Controllers
       [HttpPost]
       public async Task<IActionResult> Login([FromBody] UserLoginRequiestDto loginRequiest)
       {
+         _logger.LogInformation("| Log || Auth || login |");
         if(ModelState.IsValid)
         {
           //Check if the user exist

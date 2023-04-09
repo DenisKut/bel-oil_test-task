@@ -7,8 +7,13 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Compact;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("./appConfig/appsettings.Development.json", false, true);
+builder.Configuration.AddJsonFile("./appConfig/appsettings.json", false, true);
 
 // Add services to the container.
 
@@ -31,12 +36,13 @@ builder.Services.Scan(scan =>
 //     .AsImplementedInterfaces()
 //     .WithScopedLifetime());
 //builder.Services.AddScoped<IEntityRepo<Payment>, EntityRepo<Payment>>();
-builder.Services.AddEntityFrameworkNpgsql()
+builder.Services
   .AddDbContext<KinderContext>(options =>
     options.UseNpgsql(builder.Configuration
       .GetConnectionString("ApiDatabase")));
 
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
+
 
 builder.Services.AddAuthentication(options => {
   options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -70,6 +76,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 })
   .AddEntityFrameworkStores<KinderContext>();
 
+//Serilog
+builder.Host.UseSerilog((context, config) => {
+  config.ReadFrom.Configuration(context.Configuration);
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -79,8 +91,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseSerilogRequestLogging();
 
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 

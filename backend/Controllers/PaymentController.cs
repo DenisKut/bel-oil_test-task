@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using backend.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Serilog;
 
 namespace backend.Controllers
 {
@@ -16,23 +17,34 @@ namespace backend.Controllers
   {
     private static KinderContext _kinderContext;
     private static IEntityRepo<Payment> _paymentRepo;
-    public PaymentController(KinderContext kinderContext, IEntityRepo<Payment> paymentRepo)
+    private readonly ILogger<PaymentController> _logger;
+    public PaymentController(KinderContext kinderContext, IEntityRepo<Payment> paymentRepo, ILogger<PaymentController> logger)
     {
       _kinderContext = kinderContext;
       _paymentRepo = paymentRepo;
+      _logger = logger;
 
     }
 
     [HttpGet]
     public async Task<ActionResult<List<Payment>>> GetPays()
     {
-      var items = await _paymentRepo.GetAll();
-      return Ok(items);
+       _logger.LogInformation("| Log || Payment || GetAll |");
+      try
+      {
+        var items = await _paymentRepo.GetAll();
+        return Ok(items);
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500);
+      }
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Payment>> GetSinglePayment(long id)
     {
+      _logger.LogInformation("| Log || Payment || GetSinglePay |");
       var pay = await _paymentRepo.GetById(id);
       if (pay is null)
         return NotFound("Sorry, but this pay doesn't exist");
@@ -42,10 +54,19 @@ namespace backend.Controllers
     [HttpPost]
     public async Task<ActionResult<Payment>> AddPay(CreatePaymentDto pay)
     {
+      _logger.LogInformation("| Log || Payment || AddPay |");
+
+      //Скидка тем, кто живёт в зоне Чернобыльского загрязнения
+      double discount = 0;
+      var diryZoneLiving = _kinderContext.Children.Include(x => x.Id == pay.ChildId)
+        .Where(x => x.DirtyZone == true);
+      if(diryZoneLiving != null)
+        discount = 0.3;
+
       var payment = new Payment{
         DateOfPayment = pay.DateOfPayment,
         TypeOfPayment = pay.TypeOfPayment,
-        PaymentAmount = pay.PaymentAmount,
+        PaymentAmount = 250 * (1 - discount),
         ChildId = pay.ChildId,
         Id = _kinderContext.Payments.Max(p => p.Id) + 1
     };
@@ -56,10 +77,10 @@ namespace backend.Controllers
     [HttpPatch]
     public async Task<ActionResult<Payment>> Update(long id, CreatePaymentDto pay)
     {
+      _logger.LogInformation("| Log || Payment || Update |");
       var payment = new Payment{
         DateOfPayment = pay.DateOfPayment,
         TypeOfPayment = pay.TypeOfPayment,
-        PaymentAmount = pay.PaymentAmount,
         ChildId = pay.ChildId,
         Id = id
     };
@@ -73,13 +94,16 @@ namespace backend.Controllers
     [HttpDelete]
     public async Task<IActionResult> Delete(long id)
     {
+      _logger.LogInformation("| Log || Payment || Delete |");
       await _paymentRepo.Remove(id);
       return NoContent();
     }
+
+
     //получить Список детей у которых прошла оплата в определённой сумме
     [HttpGet]
     [Route("PaysForAmount")]
-    public async Task<ActionResult> GetLambdaPays(double amount)
+    public async Task<ActionResult<List<Payment>>> GetLambdaPays(double amount)
     {
       var pays = _kinderContext.Payments.Join(
         _kinderContext.Children,
@@ -93,14 +117,5 @@ namespace backend.Controllers
       .Select(s=>s);
       return Ok(pays);
     }
-    //получить Список детей у которых прошла оплата за заданную дату
-    //Экранирую - не работает
-    [HttpGet]
-    [Route("DifferentPay")]
-    public async Task<ActionResult> GetMonthPays() {
-      var pays = _kinderContext.Payments.FromSqlInterpolated($"select \"Children\".\"Id\", \"Children\".\"Name\", \"Payments\".\"DateOfPayment\" from \"Children\" Right join \"Payments\" on \"Payments\".\"ChildId\" = \"Children\".\"Id\" where \"Payments\".\"DateOfPayment\" = '2020-10-13'").ToList();
-      return Ok(pays);
-    }
   }
-
 }

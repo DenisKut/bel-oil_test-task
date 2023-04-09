@@ -12,6 +12,8 @@ namespace backend.Models
     public double Growth { get; set; }
     public long ParentInfoId { get; set; }
     public long ContractId { get; set; }
+    public string Region { get; set; }
+    public bool DirtyZone { get; set; }
 
     public Group Group { get; set; }
     public ParentInfo ParentInfo { get; set; }

@@ -9,7 +9,6 @@ namespace backend.Dtos
     {
       public DateTime DateOfPayment { get; set; }
       public string TypeOfPayment { get; set; }
-      public double PaymentAmount { get; set; }
       public long ChildId { get; set; }
     }
 }
