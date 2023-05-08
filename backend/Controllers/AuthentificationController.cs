@@ -38,6 +38,47 @@ namespace backend.Controllers
         _logger = logger;
       }
 
+      [HttpPatch]
+      [Route("ChangeUserInfo")]
+      public async Task<IActionResult> ChangeUserInfo(UserUpdateModel changeUserInfoModel)
+      {
+          var user = await _userManager.FindByIdAsync(changeUserInfoModel.UserId);
+          if (user != null)
+          {
+            user.Email = changeUserInfoModel.Email;
+            user.UserName = changeUserInfoModel.Name;
+            await _userManager.UpdateAsync(user);
+
+            return Ok(new UserInfoRes()
+            {
+              Result = true,
+              Email = user.Email,
+              UserId = user.Id,
+              Name = user.UserName
+            });
+          }
+          else
+          {
+            return BadRequest("Please, check your input data!");
+          }
+      }
+
+      [HttpGet]
+      [Route("GetUserInfo")]
+      public async Task<IActionResult> GetUserInfo(string id)
+      {
+        _logger.LogInformation("| Log || Auth || GetUserInfo |");
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null) return NotFound();
+        return Ok(new UserInfoRes()
+            {
+              Result = true,
+              Email = user.Email,
+              UserId = user.Id,
+              Name = user.UserName,
+            });
+      }
+
       [HttpPost]
       [Route("Register")]
       public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto requestDto)
@@ -46,6 +87,7 @@ namespace backend.Controllers
         //Validate incoming request
         if(ModelState.IsValid)
         {
+
 
           //We need to ckeck if the email already exist
           var user_exist = await _userManager.FindByEmailAsync(requestDto.Email);
@@ -66,7 +108,7 @@ namespace backend.Controllers
           var new_user = new IdentityUser()
           {
             Email = requestDto.Email,
-            UserName = requestDto.Email
+            UserName = requestDto.Name
           };
 
           var is_created = await _userManager.CreateAsync(new_user, requestDto.Password);
@@ -75,9 +117,13 @@ namespace backend.Controllers
           {
             //Generate the token
             var token = GenerateJwtToken(new_user);
-            return Ok(new AuthResult()
+
+            return Ok(new UserInfoRes()
             {
               Result = true,
+              Email = new_user.Email,
+              Name = new_user.UserName,
+              UserId = new_user.Id,
               Token = token
             });
           }
@@ -132,11 +178,14 @@ namespace backend.Controllers
 
           var jwtToken = GenerateJwtToken(existing_user);
 
-          return Ok(new AuthResult()
-          {
-            Token = jwtToken,
-            Result = true
-          });
+          return Ok(new UserInfoRes()
+            {
+              Result = true,
+              Token = jwtToken,
+              Email = existing_user.Email,
+              Name = existing_user.UserName,
+              UserId = existing_user.Id
+            });
         }
 
         return BadRequest(new AuthResult()

@@ -1,0 +1,23 @@
+.technologies__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: calc(7*90px + 10px*6);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 90px);
+  gap: 10px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 820px) {
+  .technologies__list {
+    grid-template-columns: repeat(auto-fill, 84px);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .technologies__list {
+    max-width: calc(84px*2 + 10px);
+  }
+}

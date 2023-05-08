@@ -1,0 +1,28 @@
+.technologies__subtitle {
+  margin: 26px 0 100px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 143% */
+  text-align: center;
+  letter-spacing: -0.04em;
+  width: 460px;
+}
+
+@media screen and (max-width: 768px) {
+  .technologies__subtitle {
+    margin: 22px 0 83px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .technologies__subtitle {
+    width: fit-content;
+    margin: 24px 0 50px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

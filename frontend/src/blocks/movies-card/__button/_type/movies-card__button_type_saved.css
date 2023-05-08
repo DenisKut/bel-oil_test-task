@@ -1,0 +1,4 @@
+.movies-card__button_type_saved {
+  background-image: url("../../../../images/red_heart.svg");
+  animation: like-animation 0.5s ease-in;
+}

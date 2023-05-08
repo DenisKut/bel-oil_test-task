@@ -1,0 +1,9 @@
+.login__signup-link {
+  text-decoration: none;
+  color: #000;
+  transition: opacity .3s ease-in;
+}
+
+.login__signup-link:hover {
+  opacity: .7;
+}

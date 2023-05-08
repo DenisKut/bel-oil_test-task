@@ -1,0 +1,30 @@
+.search__form {
+  width: 100%;
+  display: flex;
+  padding: 19px 19px 19px 63px;
+  position: relative;
+  transition: all 1s ease;
+}
+
+.search__form::before{
+  content: '';
+  position: absolute;
+  background-image: url('../../../images/glass_icon.svg');
+  background-repeat:no-repeat;
+  background-position: center;
+  left: 19px;
+  width: 34px;
+  height: 34px;
+  transition: all 1s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .search__form::before {
+    content: none;
+  }
+
+  .search__form{
+    padding: 19px;
+    max-width: calc(100% - 19px * 2);
+  }
+}

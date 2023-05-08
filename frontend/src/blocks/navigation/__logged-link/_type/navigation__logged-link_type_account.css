@@ -1,0 +1,38 @@
+.navigation__logged-link_type_account {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  transition: all 1s ease;
+}
+
+.navigation__logged-link_type_account::after {
+  /* position: absolute; */
+  content: '';
+  /* right: 0;
+  top: 0; */
+  width: 26px;
+  height: 30px;
+  margin-left: 17px;
+  border-radius: 4px;
+  background-color: #F9F9F9;
+  background-image: url('../../../../images/avatar.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation__logged-link_type_account {
+    margin: 420px 0 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navigation__logged-link_type_account {
+    margin-top: 451px;
+  }
+}

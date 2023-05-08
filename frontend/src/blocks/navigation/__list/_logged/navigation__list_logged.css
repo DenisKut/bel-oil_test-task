@@ -1,0 +1,26 @@
+.navigation__list_logged {
+  gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation__list_logged {
+    gap: 0;
+    padding: 159px 0 92px;
+    flex-direction: column;
+    justify-content:flex-start;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    max-width: 67.7%;
+    width: 100%;
+    background-color: #fff;
+    transition: all 1s ease;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navigation__list_logged {
+    max-width: 100%;
+    padding: 144px 0 48px;
+  }
+}

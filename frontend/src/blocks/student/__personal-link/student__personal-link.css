@@ -1,0 +1,15 @@
+.student__personal-link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #000000;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+.student__personal-link:hover {
+  opacity: .7;
+}

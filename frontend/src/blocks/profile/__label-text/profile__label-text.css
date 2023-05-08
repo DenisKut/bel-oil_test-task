@@ -1,0 +1,14 @@
+.profile__label-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  position: absolute;
+  top: 0;
+  margin: 0;
+}
+
+.profile__label-text[id='email']{
+  top:unset;
+  bottom: 0;
+}

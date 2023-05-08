@@ -1,0 +1,8 @@
+.navigation__link_signin {
+  padding: 8px 20px;
+  margin-left: 30px;
+  background-color: #000;
+  color: #fff;
+  border: #000 solid 1px;
+  border-radius: 3px;
+}

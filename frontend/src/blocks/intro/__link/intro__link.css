@@ -1,0 +1,17 @@
+.intro__link {
+  text-decoration: none;
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 10px 20px;
+  border: solid 1px;
+  border-color: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  transition: opacity .3s ease;
+}
+
+.intro__link:hover {
+  opacity: .5;
+}

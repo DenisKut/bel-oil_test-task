@@ -1,0 +1,29 @@
+.movies-card-list__more {
+  background: #F9F9F9;
+  border-radius: 6px;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  height: 36px;
+  transition: all 0.3s ease;
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.movies-card-list__more:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 1024px) {
+  .movies-card-list__more {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movies-card-list__more {
+    margin-top: 76px;
+  }
+}

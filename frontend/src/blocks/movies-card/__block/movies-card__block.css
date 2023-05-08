@@ -1,0 +1,6 @@
+.movies-card__block {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  gap: 5px;
+}

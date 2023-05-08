@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
@@ -14,7 +15,7 @@ using Serilog.Formatting.Compact;
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("./appConfig/appsettings.Development.json", false, true);
 builder.Configuration.AddJsonFile("./appConfig/appsettings.json", false, true);
-
+builder.Services.AddCors();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -43,12 +44,13 @@ builder.Services
 
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 
+//builder.Services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme);
 
 builder.Services.AddAuthentication(options => {
   options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
   options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
   options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
+}).AddCertificate()
 
   .AddJwtBearer(jwt => {
     var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfig:Secret").Value);
@@ -92,7 +94,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSerilogRequestLogging();
-
+app.UseCors(builder => builder
+  .AllowAnyHeader()
+  .AllowAnyMethod()
+  .AllowAnyOrigin()
+  );
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

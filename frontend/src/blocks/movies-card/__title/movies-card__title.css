@@ -1,0 +1,19 @@
+.movies-card__title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 265px;
+  transition: all .3s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .movies-card__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

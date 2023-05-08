@@ -1,0 +1,17 @@
+.navigation__cross {
+  background-image: url('../../../images/GroupCross.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 22.50px;
+  right: 22.50px;
+  height: 25px;
+  width: 25px;
+  transition: all .3s ease;
+}
+
+.navigation__cross:hover {
+  opacity: .6;
+  cursor: pointer;
+  transform: rotate(-90deg);
+}

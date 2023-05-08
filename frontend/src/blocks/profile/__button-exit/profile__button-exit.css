@@ -1,0 +1,22 @@
+.profile__button-exit {
+  border: none;
+  background: none;
+  color: #FF4062;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.profile__button-exit:hover {
+  transform: scale(1.2);
+}
+
+@media screen and (max-width: 600px) {
+  .profile__button-exit {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

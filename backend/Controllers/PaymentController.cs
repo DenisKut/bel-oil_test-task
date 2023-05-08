@@ -74,7 +74,7 @@ namespace backend.Controllers
       return CreatedAtAction("GetSinglePayment", item.Id, item);
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public async Task<ActionResult<Payment>> Update(long id, CreatePaymentDto pay)
     {
       _logger.LogInformation("| Log || Payment || Update |");

@@ -1,0 +1,29 @@
+.movies-card__button {
+  border: none;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  padding: 0;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.movies-card__button:hover {
+  opacity: .7;
+}
+
+@keyframes like-animation {
+  0% {
+    transform: rotate3d(0, 1, 0, 180deg) scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: rotate3d(0, 1, 0, 180deg) scale(1);
+  }
+}

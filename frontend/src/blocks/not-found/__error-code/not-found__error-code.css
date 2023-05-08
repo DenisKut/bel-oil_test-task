@@ -1,0 +1,14 @@
+.not-found__error-code {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+  transition: all 1s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .not-found__error-code {
+    font-size: 80px;
+    line-height: 97px;
+  }
+}

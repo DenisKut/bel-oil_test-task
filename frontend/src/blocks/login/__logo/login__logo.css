@@ -1,0 +1,9 @@
+.login__logo {
+  width: 100%;
+  transition: all .5s ease-in;
+}
+
+.login__logo:hover {
+  transform: rotate3d(1, 0, 1, -60deg);
+}
+

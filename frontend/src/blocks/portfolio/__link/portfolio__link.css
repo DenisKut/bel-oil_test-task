@@ -1,0 +1,91 @@
+.portfolio__link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  /* identical to box height, or 167% */
+  letter-spacing: -0.04em;
+  color: #000000;
+  position: relative;
+  width: 100%;
+  transition: all .4s ease;
+}
+
+.portfolio__link:hover  {
+  opacity: .5;
+}
+
+.portfolio__link:hover::after {
+  animation-name: rotating-background-hovering;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 100ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.portfolio__link:not(:hover)::after {
+  animation-name: rotating-background-after;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 100ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+
+.portfolio__link::after {
+  content: "";
+  width: 24px;
+  height: 18px;
+  background-image: url("../../../images/diagonal_arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  top: 30%;
+}
+
+@keyframes rotating-background-after {
+  from {
+    transform: rotate(-135deg) ;
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotating-background-hovering {
+  from {
+    transform: rotate(0deg) ;
+  }
+  to {
+    transform: rotate(-135deg);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .portfolio__link {
+    font-size: 28px;
+  }
+
+  .portfolio__link::after {
+    width: 23px;
+    height: 17px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .portfolio__link::after {
+    width: 21px;
+    height: 11px;
+  }
+}

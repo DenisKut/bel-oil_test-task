@@ -1,0 +1,15 @@
+.login__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px 0;
+  transition: all 1s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .login__title {
+    align-self: center;
+    margin: 50px 0 80px;
+  }
+}

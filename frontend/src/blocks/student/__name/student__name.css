@@ -1,0 +1,25 @@
+.student__name {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  /* identical to box height, or 116% */
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 1024px) {
+  .student__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .student__name {
+    margin-top: 40px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

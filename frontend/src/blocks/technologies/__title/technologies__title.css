@@ -1,0 +1,18 @@
+.technologies__title {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  /* identical to box height, or 116% */
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 600px) {
+  .technologies__title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

@@ -1,0 +1,31 @@
+.profile__button-edit {
+  margin: 221px 0 16px;
+  background:none;
+  color: #000;
+  border: none;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.profile__button-edit:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile__button-edit {
+    margin-top: 210px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile__button-edit {
+    margin-top: 379px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

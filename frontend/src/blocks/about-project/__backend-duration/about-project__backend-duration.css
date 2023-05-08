@@ -1,0 +1,28 @@
+.about-project__backend-duration {
+  padding: 9px 0;
+  width: 100%;
+  margin-bottom: 14px;
+  background-color: #000;
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-project__backend-duration {
+    padding: 9px 0px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .about-project__backend-duration {
+    font-size: 11px;
+    line-height: 13px;
+    margin-bottom: 10px;
+    padding: 11px 0px;
+  }
+}

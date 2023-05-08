@@ -1,0 +1,23 @@
+.about-project__progress-subtitle {
+  white-space: nowrap;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height, or 121% */
+  text-align: center;
+  color: #A0A0A0;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-project__progress-subtitle {
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project__progress-subtitle {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}

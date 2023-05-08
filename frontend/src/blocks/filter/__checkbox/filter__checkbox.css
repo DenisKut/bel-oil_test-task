@@ -1,0 +1,20 @@
+.filter__checkbox {
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.filter__checkbox::after {
+  content: "";
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  background-color: rgba(182, 175, 175, 0.575);
+  border-radius: 10px;
+  width: 34px;
+  height: 14px;
+}
+
+.filter__checkbox:checked::after {
+  background-color: #2BE080;
+}

@@ -1,0 +1,22 @@
+.register__link {
+  max-width: 38px;
+  transition: all .5s ease;
+  margin-top: 70px;
+}
+
+.register__link:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 1024px) {
+  .register__link {
+    margin-top: 232px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .register__link {
+    align-self: center;
+    margin-top: 56px;
+  }
+}

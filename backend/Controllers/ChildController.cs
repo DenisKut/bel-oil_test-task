@@ -70,7 +70,7 @@ namespace backend.Controllers
       return CreatedAtAction("GetSingleChild", item.Id, item);
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public async Task<ActionResult<Child>> Update(long id, CreateChildDto child)
     {
       _logger.LogInformation("| Log || Child || Update |");

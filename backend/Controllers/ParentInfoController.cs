@@ -66,7 +66,7 @@ namespace backend.Controllers
       return CreatedAtAction("GetSingleParent", item.Id, item);
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public async Task<ActionResult<ParentInfo>> Update(long id, CreateParentsDto parent)
     {
       _logger.LogInformation("| Log || ParentInfo || Update |");

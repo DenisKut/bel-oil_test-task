@@ -1,0 +1,11 @@
+.student__biography {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 1024px) {
+  .student__biography {
+    max-width: 364px;
+  }
+}

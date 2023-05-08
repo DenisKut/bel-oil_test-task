@@ -1,0 +1,12 @@
+.movies-card__button_type_unsave {
+  background-image: url("../../../../images/cross_icon.svg");
+  opacity: 0;
+}
+
+.movies-card__button:hover .movies-card__button_type_unsave {
+  opacity: 1;
+}
+
+.movies-card__button:hover .movies-card__button_type_unsave:hover {
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+.filter__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  transition: all 1s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .filter__text {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,6 @@
+.about-project__progress-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}

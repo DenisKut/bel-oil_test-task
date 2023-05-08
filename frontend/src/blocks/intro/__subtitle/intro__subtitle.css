@@ -1,0 +1,24 @@
+.intro__subtitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  mix-blend-mode: normal;
+  opacity: .5;
+  padding: 0;
+  margin: 36px 0 146px;
+  width: 310px;
+}
+
+@media screen and (max-width:1105px) {
+  .intro__subtitle {
+    width: 260px;
+    margin: 22px 0 92px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .intro__subtitle {
+    margin: 24px 0 80px;
+  }
+}

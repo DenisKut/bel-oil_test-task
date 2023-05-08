@@ -1,0 +1,20 @@
+.navigation__logged-link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  color: #000;
+  transition: all .3s ease;
+}
+
+.navigation__logged-link:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation__logged-link {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

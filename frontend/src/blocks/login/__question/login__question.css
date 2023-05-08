@@ -1,0 +1,24 @@
+.login__question {
+  align-self: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A0A0A0;
+  transition: all .3s ease;
+  padding-bottom: 70px;
+}
+
+@media screen and (max-width: 1024px) {
+  .login__question {
+    padding-bottom: 232px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login__question {
+    font-size: 12px;
+    line-height: 15px;
+    padding-bottom: 30px;
+  }
+}

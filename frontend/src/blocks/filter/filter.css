@@ -1,0 +1,24 @@
+.filter {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: all .3s ease;
+  height: 40px;
+  padding: 0 20px;
+  border-left: solid 1px #CBCBCB;
+  transition: all .3s ease;
+}
+
+.filter:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 600px) {
+  .filter {
+    position: absolute;
+    bottom: -75px;
+    border: none;
+    padding: 0;
+  }
+}

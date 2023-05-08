@@ -1,0 +1,19 @@
+.login__input {
+  box-sizing: border-box;
+  border-style: none;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 0 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  outline: none;
+}
+
+.login__input[type='email'] {
+  font-weight: 500;
+}
+
+.login__input:focus {
+  border-color: #000;
+}

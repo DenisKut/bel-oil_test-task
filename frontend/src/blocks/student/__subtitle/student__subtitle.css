@@ -1,0 +1,23 @@
+.student__subtitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 18px 0 26px;
+  padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .student__subtitle {
+    margin: 16px 0 20px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .student__subtitle {
+    margin: 20px 0 20px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

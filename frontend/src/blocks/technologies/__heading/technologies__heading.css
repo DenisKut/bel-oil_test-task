@@ -1,0 +1,20 @@
+.technologies__heading {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  /* identical to box height */
+  letter-spacing: -0.04em;
+  margin: 0;
+  width: 100%;
+  border-bottom: #000 solid 1px;
+  padding-bottom: 23px;
+}
+
+@media screen and (max-width: 450px) {
+  .technologies__heading {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+}

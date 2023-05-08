@@ -1,0 +1,14 @@
+.status-info-block__status {
+  width: 120px;
+  height: 120px;
+  margin: 26px auto 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 600px) {
+  .status-info-block__status {
+    margin: 25px auto 40px;
+  }
+}

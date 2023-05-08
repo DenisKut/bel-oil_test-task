@@ -67,7 +67,7 @@ namespace backend.Controllers
       return CreatedAtAction("GetSingle", item.Id, item);
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public async Task<ActionResult<Contract>> Update(long id, CreateContractDto contract)
     {
       _logger.LogInformation("| Log || Contract || Update |");

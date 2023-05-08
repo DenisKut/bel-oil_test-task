@@ -67,7 +67,7 @@ namespace backend.Controllers
       return CreatedAtAction("GetSingle", item.Id, item);
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public async Task<ActionResult<HeadOfKindergarten>> Update(long id, CreateHeadDto head)
     {
       _logger.LogInformation("| Log || HeadOfKindergarten || Update |");

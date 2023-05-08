@@ -1,0 +1,16 @@
+.search__error {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #FF4062;
+  position: absolute;
+  top: 55px;
+  left: 63px;
+}
+
+@media screen and (max-width: 600px) {
+  .search__error {
+    font-size: 10px;
+    left: 20px;
+  }
+}

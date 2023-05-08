@@ -1,0 +1,6 @@
+@media screen and (max-width: 1024px) {
+  .navigation__list_state_opened {
+    right: 0;
+    z-index: 5;
+  }
+}

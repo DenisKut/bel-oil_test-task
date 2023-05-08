@@ -1,0 +1,25 @@
+.profile__input {
+  box-sizing: border-box;
+  border-style: none;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 0 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  outline: none;
+  text-align: right;
+}
+
+.profile__input[type='email'] {
+  border: none;
+  padding: 16px 0 0;
+}
+
+.profile__input:focus{
+  border-color: #000;
+}
+
+.profile__input[type='password']:focus .profile__input[type="text"]{
+  border-color: #000;
+}
